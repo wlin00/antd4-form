@@ -14,7 +14,7 @@ export default function Field(props) {
 
   React.useLayoutEffect(() => {
     const resigter = registerFieldEntities({ // 为当前Field注册规则信息到全局Field数组
-      ...props,
+      props,
       onStoreChange: forceUpdate
     })
     return resigter
@@ -25,8 +25,9 @@ export default function Field(props) {
     return {
       value: getFieldValue(name),
       onChange: (e) => {
+        const val = e.target.value
         setFieldsValue({
-          [name]: e
+          [name]: val
         })
       }
     }

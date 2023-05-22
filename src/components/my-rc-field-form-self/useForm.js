@@ -86,12 +86,12 @@ class FormStore {
 export default function useForm(form) {
   const formRef = useRef()
 
-  if (!formRef) {
+  if (!formRef.current) {
     if (form) { // 关联到同一个form实例
       formRef.current = form
     } else {
       const formInstance = new FormStore()
-      formRef.current = formInstance
+      formRef.current = formInstance.getForm()
     }
   }
   return [formRef.current]
