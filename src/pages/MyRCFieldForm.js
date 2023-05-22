@@ -23,6 +23,10 @@ export default function MyRCFieldForm(props) {
     form.setFieldsValue({ username: "default" });
   }, []);
 
+  const handleCustomSubmit = () => {
+    form.submit()
+  }
+
   return (
     <div>
       <h3>MyRCFieldForm</h3>
@@ -35,6 +39,7 @@ export default function MyRCFieldForm(props) {
         </Field>
         <button>Submit</button>
       </Form>
+      <button style={{marginTop: '10px'}} onClick={handleCustomSubmit}>Custom Submit</button>
     </div>
   );
 }
